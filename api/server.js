@@ -1,11 +1,13 @@
 require("dotenv").config(); // ALLOWS ENVIRONMENT VARIABLES TO BE SET ON PROCESS.ENV SHOULD BE AT TOP
 const express = require("express");
+const cors = require("cors");
 const path = require("path");
 const categoriesRoute = require("./routes/category.route");
 
 const app = express();
 
 // Middleware
+app.use(cors());
 app.use(express.json()); // parse json bodies in the request object
 app.use(categoriesRoute);
 app.use("/images", express.static(path.join(__dirname, "/images")));
