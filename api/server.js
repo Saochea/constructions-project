@@ -1,6 +1,7 @@
 require("dotenv").config(); // ALLOWS ENVIRONMENT VARIABLES TO BE SET ON PROCESS.ENV SHOULD BE AT TOP
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 const path = require("path");
 const categoriesRoute = require("./routes/category.route");
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // parse json bodies in the request object
 app.use(categoriesRoute);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 // Global Error Handler. IMPORTANT function params MUST start with err

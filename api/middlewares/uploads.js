@@ -35,7 +35,7 @@ const fileFilter = (req, file, cb) => {
 
 // Define the maximum size for uploading
 // picture i.e. 1 MB. it is optional
-const maxSize = 3 * 1000 * 1000;
+const maxSize = 5 * 1000 * 1000;
 
 const upload = multer({
   storage: storage,
